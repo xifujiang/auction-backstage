@@ -32,157 +32,157 @@
     import axios from 'axios'
     import previewmodifydialog from '../../components/modifydialog/previewmodify.vue'
     export default {
-        components: {
-            previewmodifydialog,
-        },
-        data () {
-            return {
-                total: 1,
-                pagecount: 1,
-                isPreviewMoDialog: false,
-                selectModify: {},
-                columns: [
-                    {
-                        title: '作者',
-                        key: 'author',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Icon', {
-                                    props: {
-                                        type: 'person'
-                                    }
-                                }),
-                                h('strong', params.row.author)
-                            ]);
-                        }
-                    },
-                    {
-                        title: '标题',
-                        key: 'title'
-                    },
-                    {
-                        title: '发布日期',
-                        key: 'date'
-                    },
-                    {
-                        title: '操作',
-                        key: 'action',
-                        width: 200,
-                        align: 'center',
-                        render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'primary',
-                                        size: 'small'
-                                    },
-                                    style: {
-                                        marginRight: '5px'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.show(params.index)
-                                        }
-                                    }
-                                }, '查看'),
-                                h('Button', {
-                                    props: {
-                                        type: 'primary',
-                                        size: 'small'
-                                    },
-                                    style: {
-                                        marginRight: '5px'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.getUserInfo(params.index)
-                                        }
-                                    }
-                                }, '修改'),
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.remove(params.index)
-                                        }
-                                    }
-                                }, '删除')
-                            ]);
-                        }
+      components: {
+        previewmodifydialog,
+      },
+      data () {
+        return {
+          total: 1,
+          pagecount: 1,
+          isPreviewMoDialog: false,
+          selectModify: {},
+          columns: [
+            {
+              title: '作者',
+              key: 'author',
+              render: (h, params) => {
+                return h('div', [
+                  h('Icon', {
+                    props: {
+                        type: 'person'
                     }
-                ],
-                data2: []
-            }
-        },
-        mounted() {
-            this.getList()
-        },
-        methods: {
-            show (index) {
-                this.$Modal.info({
-                    title: '公告信息',
-                    content: `作者：${this.data2[index].author}<br>标题：${this.data2[index].title}<br>发布日期：${this.data2[index].date}`
-                })
+                  }),
+                  h('strong', params.row.author)
+                ]);
+              }
             },
-            remove (index) {
-                let del = {
-                    delid: this.data2[index]._id
+            {
+              title: '标题',
+              key: 'title'
+            },
+            {
+              title: '发布日期',
+              key: 'date'
+            },
+            {
+              title: '操作',
+              key: 'action',
+              width: 200,
+              align: 'center',
+              render: (h, params) => {
+                return h('div', [
+                  h('Button', {
+                    props: {
+                      type: 'primary',
+                      size: 'small'
+                    },
+                    style: {
+                      marginRight: '5px'
+                    },
+                    on: {
+                      click: () => {
+                        this.show(params.index)
+                      }
+                    }
+                  }, '查看'),
+                  h('Button', {
+                    props: {
+                      type: 'primary',
+                      size: 'small'
+                    },
+                    style: {
+                      marginRight: '5px'
+                    },
+                    on: {
+                      click: () => {
+                        this.getUserInfo(params.index)
+                      }
+                    }
+                  }, '修改'),
+                  h('Button', {
+                    props: {
+                      type: 'error',
+                      size: 'small'
+                    },
+                    on: {
+                      click: () => {
+                        this.remove(params.index)
+                      }
+                    }
+                  }, '删除')
+                ]);
                 }
-                axios.post("/laws/del",del)
-                .then(res=> {
-                    this.data2.splice(index, 1);
-                })
-                .catch(err =>{
-                })
-            },
-            showInfoModify() {
-                this.isPreviewMoDialog = true;
-            },
-            // 关闭弹出层
-            closeDialog(attr) {
-              console.log(attr)
-              this.isPreviewMoDialog = false
-            },
-            getUserInfo(number) {
-                let userInfoPost = {
-                    lawid: this.data2[number]._id
-                }
-                console.log(userInfoPost)
-                axios.post("/law/detail",userInfoPost).then((res)=> {
-                    this.selectModify = res.data.result.list;
-                }).catch((error)=> {
-                  console.log(error);
-                });
-                this.showInfoModify()
-            },
-             // 获取拍卖预告总条数
-            getPageCount() {
-                axios.get("/laws/Count")
-                .then(res=> {
-                    this.total = res.data.result.count
-                })
-                .catch(err=> {
-                    console.log(err)
-                })
-            },
-            // 页码切换回调
-            showPageCount() {
-                this.getList();
-            },
-            getList() {
-                this.getPageCount()
-                let Post = {
-                    pagecount: this.pagecount
-                }
-                axios.post("/laws/list",Post)
-                .then(res=> {
-                    this.data2 = res.data.result.list
-                })
-            },
+              }
+            ],
+            data2: []
         }
+      },
+      mounted() {
+        this.getList()
+      },
+      methods: {
+        show (index) {
+          this.$Modal.info({
+            title: '公告信息',
+            content: `作者：${this.data2[index].author}<br>标题：${this.data2[index].title}<br>发布日期：${this.data2[index].date}`
+          })
+        },
+        remove (index) {
+          let del = {
+            delid: this.data2[index]._id
+          }
+          axios.post("/laws/del",del)
+          .then(res=> {
+            this.data2.splice(index, 1);
+          })
+          .catch(err =>{
+          })
+        },
+        showInfoModify() {
+          this.isPreviewMoDialog = true;
+        },
+        // 关闭弹出层
+        closeDialog(attr) {
+          console.log(attr)
+          this.isPreviewMoDialog = false
+        },
+        getUserInfo(number) {
+          let userInfoPost = {
+            lawid: this.data2[number]._id
+          }
+          console.log(userInfoPost)
+          axios.post("/law/detail",userInfoPost).then((res)=> {
+            this.selectModify = res.data.result.list;
+          }).catch((error)=> {
+            console.log(error);
+          });
+          this.showInfoModify()
+        },
+         // 获取拍卖预告总条数
+        getPageCount() {
+          axios.get("/laws/Count")
+          .then(res=> {
+            this.total = res.data.result.count
+          })
+          .catch(err=> {
+            console.log(err)
+          })
+        },
+        // 页码切换回调
+        showPageCount() {
+          this.getList();
+        },
+        getList() {
+          this.getPageCount()
+          let Post = {
+              pagecount: this.pagecount
+          }
+          axios.post("/laws/list",Post)
+          .then(res=> {
+              this.data2 = res.data.result.list
+          })
+        },
+      }
     }
 </script>
 

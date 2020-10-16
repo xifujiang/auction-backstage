@@ -1,15 +1,3 @@
-<style>
-    .checkitem {
-        font-weight: bolder;
-        font-size: 16px;
-        margin-bottom: 6px;
-    }
-
-    .checkwarn {
-        margin-bottom: 6px;
-        color: red;
-    }
-</style>
 
 <template>
 	<section id="manageinfo">
@@ -275,6 +263,18 @@
     }
 </script>
 
+<style>
+  .checkitem {
+    font-weight: bolder;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .checkwarn {
+    margin-bottom: 6px;
+    color: red;
+  }
+</style>
 <style scoped>
 	#manageinfo {
 		width: 100%;

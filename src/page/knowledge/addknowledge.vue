@@ -1,95 +1,3 @@
-<style>
-    #addknowledge {
-		width: 100%;
-		height: 100%;
-		position: relative;
-	}
-
-	.addknow-inner {
-		width: 100%;
-		height: 100%;
-		background-color: #fff;
-		font-size: 16px;
-		display: flex;
-		flex-flow: column wrap;
-		justify-content: flex-start;
-	}
-
-	.title {
-		font-weight: 500;
-		color: #000;
-		font-size: 20px;
-		width: 100%;
-		height: 40px;
-		line-height: 40px;
-	}
-
-	.title::before {
-		content: ".";
-		width: 3px;
-		height: 20px;
-		background-color: #000;
-		margin-right: 10px;
-	}
-
-	.addkonw-btn {
-	  width: 100px;
-	  height: 51px;
-	  display: inline-block;
-	  border-radius: 4px;
-	  border: 1px solid #35495e;
-	  color: #fff;
-	  background-color: #0c328a;
-	  text-decoration: none;
-	  margin-bottom: 10px;
-	  overflow: hidden;
-	  font-family: Main Head;
-	  font-size: 16px;
-	  position: absolute;
-	  top: 10px;
-	  right: 10px;
-	}
-
-	.addkonw-btn:hover {
-	  color: #fff;
-	  background-color: #35495e;
-	}
-
-	.addkonw-btn:focus, .addkonw-btn:hover {
-	  background: rgba(12, 50, 138, .8);
-	  border-color: rgba(12, 50, 138, .8);
-	  color: #fff
-	}
-
-	.addkonw-btn:active {
-	  background: rgba(12, 50, 138, .8);
-	  border-color: rgba(12, 50, 138, .8);
-	  color: #fff
-	}
-
-	.addkonw-btn:active {
-	  outline: 0
-	}
-
-	.addinfo-content-addtitle {
-	  padding: 15px 10px;
-	  font-weight: bolder;
-	}
-	.addinfo-content-addtitle .input-title {
-	  width: 100%;
-	  text-align: center;
-	}
-	.addinfo-content-adddescription {
-	  padding: 15px 10px;
-	  font-weight: bolder;
-	}
-	.addinfo-content-adddescription .input-description {
-	  width: 100%;
-	  text-align: center;
-	  text-indent: 25px;
-	}
-</style>
-
 <template>
 	<section id="addknowledge">
 		<div class="addknow-inner">
@@ -160,3 +68,94 @@
 		}
 	}
 </script>
+<style>
+  #addknowledge {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .addknow-inner {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    font-size: 16px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+  }
+
+  .title {
+    font-weight: 500;
+    color: #000;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .title::before {
+    content: ".";
+    width: 3px;
+    height: 20px;
+    background-color: #000;
+    margin-right: 10px;
+  }
+
+  .addkonw-btn {
+    width: 100px;
+    height: 51px;
+    display: inline-block;
+    border-radius: 4px;
+    border: 1px solid #35495e;
+    color: #fff;
+    background-color: #0c328a;
+    text-decoration: none;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-family: Main Head;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .addkonw-btn:hover {
+    color: #fff;
+    background-color: #35495e;
+  }
+
+  .addkonw-btn:focus, .addkonw-btn:hover {
+    background: rgba(12, 50, 138, .8);
+    border-color: rgba(12, 50, 138, .8);
+    color: #fff
+  }
+
+  .addkonw-btn:active {
+    background: rgba(12, 50, 138, .8);
+    border-color: rgba(12, 50, 138, .8);
+    color: #fff
+  }
+
+  .addkonw-btn:active {
+    outline: 0
+  }
+
+  .addinfo-content-addtitle {
+    padding: 15px 10px;
+    font-weight: bolder;
+  }
+  .addinfo-content-addtitle .input-title {
+    width: 100%;
+    text-align: center;
+  }
+  .addinfo-content-adddescription {
+    padding: 15px 10px;
+    font-weight: bolder;
+  }
+  .addinfo-content-adddescription .input-description {
+    width: 100%;
+    text-align: center;
+    text-indent: 25px;
+  }
+</style>

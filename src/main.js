@@ -4,19 +4,24 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import layout from './page/layout.vue'
-
-// 外部插件导入
 import iView from 'iview';
 import SMEditor from 'smeditor'
-
-import Vuex from 'vuex'
-
-// 外部样式导入
 import 'iview/dist/styles/iview.css';
+import Vuex from 'vuex'
+import axios from 'axios';
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
-Vue.use(Vuex)
-Vue.use(iView)
-Vue.use(SMEditor)
+axios.defaults.baseURL = 'http://localhost:8432/api';
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-from-urlencoded';
+// 全局注册，之后可在其他组件中通过 this.$axios 发送数据
+Vue.prototype.$axios = axios;
+Vue.config.productionTip = false;
+
+Vue.use(Vuex);
+Vue.use(iView);
+Vue.use(SMEditor);
+Vue.use(ElementUI);
 
 const store = new Vuex.Store({
 	state: {
@@ -32,10 +37,6 @@ const store = new Vuex.Store({
 		}
 	}
 });
-
-
-
-Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({

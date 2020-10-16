@@ -13,6 +13,10 @@ import MangeLawPage from '../page/law/mangelaw.vue'
 import MangePreviewPage from '../page/preview/mangepreview.vue'
 import AddUserPage from '../page/user/adduser.vue'
 import MangeUserPage from '../page/user/mangeuser.vue'
+import DealCommodity from '../page/commodity/dealCommodity.vue'
+import SeeCommodity from '../page/commodity/seeCommodity.vue'
+import SeeCommodityType from '../page/commodity/seeCommodityType.vue'
+import DealMember from '../page/commodity/dealMember.vue'
 
 Vue.use(Router)
 
@@ -72,6 +76,22 @@ export default new Router({
     {
       path: '/manageusers',
       component: MangeUserPage
+    },
+    {
+      path: '/dealCommodity',
+      component: DealCommodity
+    },
+    {
+      path: '/seeCommodity',
+      component: SeeCommodity
+    },
+    {
+      path: '/seeCommodityType',
+      component: SeeCommodityType
+    },
+    {
+      path: '/dealMember',
+      component: DealMember
     }
   ]
 })

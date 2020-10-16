@@ -7,7 +7,25 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      isRouterAlive: true
+    }
+  },
+  provide: function () {
+    return {
+      reload: this.reload
+    };
+  },
+  methods: {
+    reload: function () {
+      this.isRouterAlive = false;
+      this.$nextTick(function () {
+        this.isRouterAlive = true;
+      });
+    }
+  },
 }
 </script>
 
